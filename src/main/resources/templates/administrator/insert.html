@@ -87,9 +87,6 @@
                       >
                         メールアドレスを入力してください
                       </label>
-                      <div th:if="${errorMessage1}" class="text-danger">
-                        <p th:text="${errorMessage1}">エラーメッセージ</p>
-                      </div>
                       <input
                         type="text"
                         name="mailAddress"
@@ -114,9 +111,6 @@
                       >
                         パスワードを入力してください
                       </label>
-                      <div th:if="${errorMessage2}" class="text-danger">
-                        <p th:text="${errorMessage2}">エラーメッセージ</p>
-                      </div>
                       <input
                         type="password"
                         name="password"
