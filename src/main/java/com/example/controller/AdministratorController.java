@@ -77,6 +77,17 @@ public class AdministratorController {
 	@PostMapping("/insert")
 	public String insert(@Validated InsertAdministratorForm form ,BindingResult result,Model model) {
 
+		// メールアドレス重複チェック
+        if (administratorService.isEmailRegistered(form.getMailAddress())) {
+            model.addAttribute("errorMessage1", "このメールアドレスはすでに登録されています。");
+            return toInsert();
+        }
+
+		if (!form.getPassword().equals(form.getConfirmPassword())) {
+            model.addAttribute("errorMessage2", "パスワードが一致しません。");
+            return "insert";
+        }
+
 		if(result.hasErrors()){
 			return toInsert();
 		}

@@ -27,6 +27,8 @@ public class InsertAdministratorForm {
     private String password;
 
 	/** 確認用パスワード */
+	@NotBlank(message = "パスワードを入力してください")
+    @Size(min = 6, max = 20, message = "パスワードは6文字以上20文字以内で入力してください")
 	private String confirmPassword;
 
 	public String getName() {

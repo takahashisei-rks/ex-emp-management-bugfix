@@ -20,6 +20,10 @@ public class AdministratorService {
 	@Autowired
 	private AdministratorRepository administratorRepository;
 
+	public boolean isEmailRegistered(String email) {
+        return administratorRepository.findByMailAddress(email) != null;
+    }
+
 	/**
 	 * 管理者情報を登録します.
 	 * 
